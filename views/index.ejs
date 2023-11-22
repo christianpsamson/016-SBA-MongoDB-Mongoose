@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Dog Breeds</title>
+  </head>
+  <body>
+    <h1>All Dog Breeds</h1>
+    <ul>
+      <% for(let dog of dogs) { %>
+      <li><a href="/dogs/<%= dog._id %>"><%= dog.name %></a></li>
+      <% } %>
+    </ul>
+  </body>
+</html>

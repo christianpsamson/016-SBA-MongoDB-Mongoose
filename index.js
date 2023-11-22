@@ -23,10 +23,28 @@ mongoose
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/dogs", async (req, res) => {
   const dogs = await Dog_weight.find({});
-  res.send("Dogs");
+  res.render("index", { dogs });
+});
+
+app.get("/dogs/new", (req, res) => {
+  res.render("newDoc");
+});
+
+app.post("/dogs", async (req, res) => {
+  const newBreed = new Dog_weight(req.body);
+  await newBreed.save();
+  res.redirect(`/dogs/${newBreed._id}`);
+});
+
+app.get("/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+  const dog = await Dog_weight.findById(id);
+  console.log(dog);
+  res.render("details", { dog });
 });
 
 app.listen(PORT, () => {
