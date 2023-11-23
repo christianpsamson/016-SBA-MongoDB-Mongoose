@@ -42,9 +42,13 @@ app.get("/dogs/new", (req, res) => {
 });
 
 app.post("/dogs", async (req, res) => {
-  const newBreed = new Dog_weight(req.body);
-  await newBreed.save();
-  res.redirect(`/dogs/${newBreed._id}`);
+  try {
+    const newBreed = new Dog_weight(req.body);
+    await newBreed.save();
+    res.redirect(`/dogs/${newBreed._id}`);
+  } catch (error) {
+    res.status(400).send(`ERROR: ${error}`);
+  }
 });
 
 app.get("/dogs/:id", async (req, res) => {

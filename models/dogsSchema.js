@@ -4,22 +4,28 @@ const dogSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
+    trim: true,
   },
   maleWtKg: {
     type: String,
     required: true,
+    match: /\d.*-\d.*/,
   },
   maleWtLb: {
     type: String,
     required: true,
+    match: /\d.*-\d.*/,
   },
   femaleWtKg: {
     type: String,
     required: true,
+    match: /\d.*-\d.*/,
   },
   femaleWtLb: {
     type: String,
     required: true,
+    match: /\d.*-\d.*/,
   },
 });
 
