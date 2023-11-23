@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// schema
+// validations: required, unique, trim and match
+//////////////////////////////////////////////////////////////////////////////////////////////////
 const mongoose = require("mongoose");
 
 const dogSchema = new mongoose.Schema({
@@ -30,4 +34,5 @@ const dogSchema = new mongoose.Schema({
 });
 
 const Dog_weight = mongoose.model("Dog_weight", dogSchema);
+
 module.exports = Dog_weight;

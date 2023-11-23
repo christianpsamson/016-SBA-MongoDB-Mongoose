@@ -13,7 +13,7 @@
       <li>Female Weight in kg: <%= dog.femaleWtKg %></li>
       <li>Female Weight in lb: <%= dog.femaleWtLb %></li>
     </ul>
-    <a href="/dogs">Back to Breed List</a>
+    <a href="/dogs">Back to Breed List</a>&nbsp;
     <a href="/dogs/<%= dog._id %>/edit">Edit Dog Weights</a>
     <form action="/dogs/<%= dog._id %>?_method=DELETE" method="POST">
       <button>DELETE</button>

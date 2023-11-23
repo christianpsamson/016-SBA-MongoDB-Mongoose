@@ -1,0 +1,21 @@
+/* Note: Ensure that the server is configured to serve static files */
+/* app.use(express.static('public')); */
+
+body {
+  background: #f5f5f4;
+  color: #232323;
+  line-height: 30px;
+  font-size: 20px;
+  font-family: sans-serif;
+  padding: 25px 50px;
+}
+
+#highlighted {
+  text-decoration: none;
+  width: 70vw;
+  display: block;
+  color: #09507c;
+  background: #deedf2;
+  padding: 2px 10px;
+  font-family: "Courier New", Courier, monospace;
+}
