@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Dog Breed</title>
+  </head>
+  <body>
+    <h1>Edit the Dog's Weight Information</h1>
+    <form action="/dogs/<%=dog._id%>?_method=PUT" method="POST">
+      <label for="name">Dog Breed Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="breed name"
+        value="<%=dog.name%>"
+      />
+      <label for="maleWtKg">Male Weight in kg</label>
+      <input
+        type="text"
+        name="maleWtKg"
+        id="maleWtKg"
+        placeholder="enter weight range"
+        value="<%=dog.maleWtKg%>"
+      />
+      <label for="maleWtLb">Male Weight in lb</label>
+      <input
+        type="text"
+        name="maleWtLb"
+        id="maleWtLb"
+        placeholder="enter weight range"
+        value="<%=dog.maleWtLb%>"
+      />
+      <label for="femaleWtKg">Female Weight in kg</label>
+      <input
+        type="text"
+        name="femaleWtKg"
+        id="femaleWtKg"
+        placeholder="enter weight ranget"
+        value="<%=dog.femaleWtKg%>"
+      />
+      <label for="femaleWtLb">Female Weight in lb</label>
+      <input
+        type="text"
+        name="femaleWtLb"
+        id="femaleWtLb"
+        placeholder="enter weight range"
+        value="<%=dog.femaleWtLb%>"
+      />
+      <button>UPDATE</button>
+      <a href="/dogs/<%= dog._id %>">Cancel</a>
+    </form>
+  </body>
+</html>

@@ -3,6 +3,13 @@ const app = express();
 const dotenv = require("dotenv");
 const path = require("path");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override");
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// override the html method for forms:
+//
+app.use(methodOverride("_method"));
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 const Dog_weight = require("./models/dogsSchema");
 
@@ -45,6 +52,27 @@ app.get("/dogs/:id", async (req, res) => {
   const dog = await Dog_weight.findById(id);
   console.log(dog);
   res.render("details", { dog });
+});
+
+app.get("/dogs/:id/edit", async (req, res) => {
+  const { id } = req.params;
+  const dog = await Dog_weight.findById(id);
+  res.render("editDoc", { dog });
+});
+
+app.put("/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(req.body);
+  const dog = await Dog_weight.findByIdAndUpdate(id, req.body, {
+    runValidators: true,
+  });
+  res.redirect(`/dogs/${dog._id}`);
+});
+
+app.delete("/dogs/:id", async (req, res) => {
+  const { id } = req.params;
+  const deleteDoc = await Dog_weight.findByIdAndDelete(id);
+  res.redirect("/dogs");
 });
 
 app.listen(PORT, () => {
