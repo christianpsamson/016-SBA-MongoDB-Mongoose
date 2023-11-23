@@ -18,6 +18,14 @@ Database:   dog_breeds
 Collection: dog_weights
 ```
 
+To seed the database collection, postData.js was executed.
+
+```js
+node postData.js
+```
+
+<p>&nbsp</p>
+
 ## Base URL
 
 The base URL is:
